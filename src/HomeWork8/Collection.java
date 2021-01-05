@@ -124,5 +124,4 @@ public class Collection<E> implements NewCollection<E> {
         }
         return str;
     }
-
 }

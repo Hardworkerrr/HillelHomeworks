@@ -6,7 +6,7 @@ public class MainProgram {
         System.out.println(collection.toString());
         collection.add("Added1");
         System.out.println(collection.toString());
-        collection.add(1,"Added2");
+        collection.add(1, "Added2");
         System.out.println(collection.toString());
         collection.remove(1);
         System.out.println(collection.toString());
@@ -22,8 +22,6 @@ public class MainProgram {
         System.out.println(collection.equals(collection2));
         System.out.println(collection.equals(collection3));
         collection.clear();
-        System.out.println("Finished");
-
 
     }
 }
