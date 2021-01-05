@@ -22,6 +22,7 @@ public class MainProgram {
         System.out.println(collection.equals(collection2));
         System.out.println(collection.equals(collection3));
         collection.clear();
+        System.out.println("Finished");
 
 
     }

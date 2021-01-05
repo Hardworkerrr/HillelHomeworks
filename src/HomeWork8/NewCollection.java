@@ -18,4 +18,5 @@ public interface NewCollection<E>{
     boolean clear();
 
     int size();
+
 }
