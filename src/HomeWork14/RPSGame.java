@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class RPSGame {
     private static RPSEnum[] rpsPlayerEnum;
+    private static int rpsPlayerIndex;
+    private static int rpsPcIndex;
     private static RPSEnum[] rpsPcEnum;
     private static String playerName;
     private static int gameCount;
     private static int currentGameCount = 0;
-    public static String result = "=========================================" + "\n";
+    private static String result = "=========================================" + "\n";
 
     public RPSGame() {
 
@@ -34,14 +36,17 @@ public class RPSGame {
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         switch (str.toLowerCase()) {
-            case "ножницы":
-                rpsPlayerEnum[currentGameCount] = RPSEnum.SCISSORS;
-                break;
             case "камень":
                 rpsPlayerEnum[currentGameCount] = RPSEnum.ROCK;
+                rpsPlayerIndex = 0;
+                break;
+            case "ножницы":
+                rpsPlayerEnum[currentGameCount] = RPSEnum.SCISSORS;
+                rpsPlayerIndex = 1;
                 break;
             case "бумага":
                 rpsPlayerEnum[currentGameCount] = RPSEnum.PAPER;
+                rpsPlayerIndex = 2;
                 break;
             default:
                 System.out.println("Вы ввели название с ошибкой...");
@@ -51,54 +56,44 @@ public class RPSGame {
     }
 
     public static void whoWins() throws IOException {
+        int[][] resultsMatrix = {
+                {3, 1, 2},
+                {2, 3, 1},
+                {1, 2, 3}
+        };
+
         String currGameRes = "";
         switch ((int) (Math.random() * 3)) {
             case 0:
-                rpsPcEnum[currentGameCount] = RPSEnum.SCISSORS;
+                rpsPcEnum[currentGameCount] = RPSEnum.ROCK;
+                rpsPcIndex = 0;
                 break;
             case 1:
-                rpsPcEnum[currentGameCount] = RPSEnum.ROCK;
+                rpsPcEnum[currentGameCount] = RPSEnum.SCISSORS;
+                rpsPcIndex = 1;
                 break;
             case 2:
                 rpsPcEnum[currentGameCount] = RPSEnum.PAPER;
+                rpsPcIndex = 2;
                 break;
             default:
         }
-        if (rpsPlayerEnum[currentGameCount] == rpsPcEnum[currentGameCount]) {
-            System.out.println("У вас ничья, продолжайте выбор : ножницы, бумага, камень");
-            condition();
-            return;
-        }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.ROCK && rpsPcEnum[currentGameCount] == RPSEnum.SCISSORS) {
+        if (resultsMatrix[rpsPlayerIndex][rpsPcIndex] == 1) {
             currGameRes += "Игрок: " + playerName + " выиграл!" + "\n" +
                     "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
                     "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
+        } else {
+            if (resultsMatrix[rpsPlayerIndex][rpsPcIndex] == 2) {
+                currGameRes += "Компьютер выиграл!" + "\n" +
+                        "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
+                        "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
+            } else {
+                System.out.println("У вас ничья, продолжайте выбор : ножницы, бумага, камень");
+                condition();
+                return;
+            }
         }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.ROCK && rpsPcEnum[currentGameCount] == RPSEnum.PAPER) {
-            currGameRes += "Компьютер выиграл!" + "\n" +
-                    "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
-                    "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
-        }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.PAPER && rpsPcEnum[currentGameCount] == RPSEnum.ROCK) {
-            currGameRes += "Игрок: " + playerName + " выиграл!" + "\n" +
-                    "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
-                    "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
-        }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.PAPER && rpsPcEnum[currentGameCount] == RPSEnum.SCISSORS) {
-            currGameRes += "Компьютер выиграл!" + "\n" +
-                    "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
-                    "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
-        }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.SCISSORS && rpsPcEnum[currentGameCount] == RPSEnum.PAPER) {
-            currGameRes += "Игрок: " + playerName + " выиграл!" + "\n" +
-                    "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
-                    "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
-        }
-        if (rpsPlayerEnum[currentGameCount] == RPSEnum.SCISSORS && rpsPcEnum[currentGameCount] == RPSEnum.ROCK) {
-            currGameRes += "Компьютер выиграл!" + "\n" +
-                    "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
-                    "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
-        }
+
         result += currGameRes;
         result += "=========================================" + "\n";
         currentGameCount++;
@@ -138,15 +133,19 @@ public class RPSGame {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             FileWriter save = new FileWriter(file);
             save.write(result);
             save.close();
             System.out.println("dog");
         }
+    }
 
+    public static String getResult() {
+        return result;
     }
 
 }
+
+
 
