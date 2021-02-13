@@ -1,0 +1,29 @@
+maven.iml: Different type of file, can't convert 
+pom.xml: Different type of file, can't convert 
+Collection.java: Different type of file, can't convert 
+IntegersEx.java: Different type of file, can't convert 
+ListPair.java: Different type of file, can't convert 
+StringCollEx.java: Different type of file, can't convert 
+StringPair.java: Different type of file, can't convert 
+ConvertJsonToYaml.java: Different type of file, can't convert 
+Converts.java: Different type of file, can't convert 
+ConvertYamlToJson.java: Different type of file, can't convert 
+Main.java: Different type of file, can't convert 
+MyParser.java: Different type of file, can't convert 
+WorkWithFiles.java: Different type of file, can't convert 
+Файл - 100_item.json сконверировался в фаил - 100_item.yaml успешно.
+Старый размер : 14151 байт
+Новый размер : 13447 байт
+Время выполнения конвертации : 576.0 мс
+Файл - 20_item.json сконверировался в фаил - 20_item.yaml успешно.
+Старый размер : 2790 байт
+Новый размер : 2646 байт
+Время выполнения конвертации : 14.0 мс
+Файл - test1.yaml сконверировался в фаил - test1.json успешно.
+Старый размер : 15260 байт
+Новый размер : 7342 байт
+Время выполнения конвертации : 158.0 мс
+Файл - test2.yaml сконверировался в фаил - test2.json успешно.
+Старый размер : 237 байт
+Новый размер : 206 байт
+Время выполнения конвертации : 4.0 мс
