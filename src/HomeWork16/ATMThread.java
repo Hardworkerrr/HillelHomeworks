@@ -22,16 +22,15 @@ public class ATMThread extends Thread {
     }
 
     public void condition() throws InterruptedException {
-        System.out.println("Выберите операцию с банковским аккаунтом : просмотр баланса, снятие наличных, пополнение счета");
         sleep(2000);
-        switch (new Scanner(System.in).nextLine().toLowerCase()) {
-            case "просмотр баланса":
+        switch ((int)(Math.random()*3)) {
+            case 0:
                 atm.getMoneyBalance();
                 break;
-            case "снятие наличных":
+            case 1:
                 atm.withdrawMoney();
                 break;
-            case "пополнение счета":
+            case 2:
                 atm.putMoney();
                 break;
             default:
