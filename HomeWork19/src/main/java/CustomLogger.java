@@ -7,7 +7,11 @@ public class CustomLogger {
     private static final Logger errorLogger = LoggerFactory.getLogger("logger.error");
     private static final Logger warnLogger = LoggerFactory.getLogger("logger.warn");
     private static final Logger resultLogger = LoggerFactory.getLogger("logger.result");
+    private static final Logger consoleLogger = LoggerFactory.getLogger("logger.stdout");
 
+    public static Logger getConsoleLogger() {
+        return consoleLogger;
+    }
 
     public static Logger getInfoLogger() {
         return infoLogger;

@@ -20,13 +20,13 @@ public class RPSGame {
 
     public static void gameStart() throws IOException {
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите своё имя : ");
+        CustomLogger.getConsoleLogger().info("Введите своё имя : ");
         playerName = in.nextLine();
         CustomLogger.getInfoLogger().info("Игрок " + playerName + " зашел в игру...");
-        System.out.println("Введите сколько раз вы хотите ссыграть : ");
+        CustomLogger.getConsoleLogger().info("Введите сколько раз вы хотите ссыграть : ");
         gameCount = in.nextInt();
         CustomLogger.getInfoLogger().info("Количество игр выбранных игроком : " + gameCount);
-        System.out.println("Да начнётся игра...");
+        CustomLogger.getConsoleLogger().info("Да начнётся игра...");
         rpsPlayerEnum = new RPSEnum[gameCount];
         rpsPcEnum = new RPSEnum[gameCount];
         while (currentGameCount < gameCount) {
@@ -35,7 +35,7 @@ public class RPSGame {
     }
 
     public static void condition() throws IOException {
-        System.out.println("Напишите, что вы хотите поставить: ножницы, бумага, камень");
+        CustomLogger.getConsoleLogger().info("Напишите, что вы хотите поставить: ножницы, бумага, камень");
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         switch (str.toLowerCase()) {
@@ -52,7 +52,7 @@ public class RPSGame {
                 rpsPlayerIndex = 2;
                 break;
             default:
-                System.out.println("Вы ввели название с ошибкой...");
+                CustomLogger.getConsoleLogger().info("Вы ввели название с ошибкой...");
                 return;
         }
         whoWins();
@@ -92,7 +92,7 @@ public class RPSGame {
                         "Выбор игрока :" + rpsPlayerEnum[currentGameCount] + "\n" +
                         "Выбор компьютера :" + rpsPcEnum[currentGameCount] + "\n";
             } else {
-                System.out.println("У вас ничья, продолжайте выбор : ножницы, бумага, камень");
+                CustomLogger.getConsoleLogger().info("У вас ничья, продолжайте выбор : ножницы, бумага, камень");
                 CustomLogger.getInfoLogger().info("Ход № " + currPick +
                         " Выбор игрока - " + rpsPlayerEnum[currentGameCount]+
                         " Выбор компьютера - " + rpsPcEnum[currentGameCount]);
@@ -119,7 +119,7 @@ public class RPSGame {
     }
 
     public static boolean endGame() throws IOException {
-        System.out.println("Хотите ли вы продолжить игру: да, нет ?");
+        CustomLogger.getConsoleLogger().info("Хотите ли вы продолжить игру: да, нет ?");
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         switch (str.toLowerCase()) {

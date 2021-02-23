@@ -123,11 +123,27 @@
         </encoder>
     </appender>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern></pattern>
-        </encoder>
+<!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>INFO</level>-->
+<!--        </filter>-->
+<!--        <encoder>-->
+<!--            <pattern>%msg%n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <appender name="sout" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%msg%n</pattern>
+        </layout>
     </appender>
+
+    <logger name="logger.stdout" level="INFO">
+        <appender-ref ref="sout"/>
+    </logger>
 
     <logger name="logger.debug" level="DEBUG">
         <appender-ref ref="debug_log"/>
