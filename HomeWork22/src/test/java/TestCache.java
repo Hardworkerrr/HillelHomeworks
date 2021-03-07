@@ -27,6 +27,13 @@ public class TestCache {
     }
 
     @Test
+    public void testPutEquals(){
+        Cache cache = new Cache();
+        cache.put("FirstName","1","Nikolai");
+        Assert.assertEquals("Nikolai",cache.get("FirstName","1"));
+    }
+
+    @Test
     public void testGetNotNull(){
         Cache cache = new Cache();
         cache.put("FirstName","1","Nikolai");

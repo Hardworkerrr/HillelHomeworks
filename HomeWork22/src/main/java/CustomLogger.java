@@ -18,7 +18,6 @@ public class CustomLogger {
      * CustomLogger Getter
      *
      * @return {@link Logger}
-     * @author OlegAtaulin
      * @since 1.0.0
      */
     public static Logger getConsoleLogger() {
@@ -29,7 +28,6 @@ public class CustomLogger {
      * CustomLogger Getter
      *
      * @return {@link Logger}
-     * @author OlegAtaulin
      * @since 1.0.0
      */
     public static Logger getInfoLogger() {
@@ -40,7 +38,6 @@ public class CustomLogger {
      * CustomLogger Getter
      *
      * @return {@link Logger}
-     * @author OlegAtaulin
      * @since 1.0.0
      */
     public static Logger getDebugLogger() {
@@ -51,7 +48,6 @@ public class CustomLogger {
      * CustomLogger Getter
      *
      * @return {@link Logger}
-     * @author OlegAtaulin
      * @since 1.0.0
      */
     public static Logger getErrorLogger() {
@@ -62,7 +58,6 @@ public class CustomLogger {
      * CustomLogger Getter
      *
      * @return {@link Logger}
-     * @author OlegAtaulin
      * @since 1.0.0
      */
     public static Logger getWarnLogger() {
